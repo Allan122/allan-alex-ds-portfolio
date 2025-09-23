@@ -1,0 +1,16 @@
+/* These three lines are the most important. They tell Tailwind to generate its core styles. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* This is our custom styling from the blueprint. */
+body {
+    @apply bg-gray-900 text-gray-300;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    @apply text-white;
+}
+
