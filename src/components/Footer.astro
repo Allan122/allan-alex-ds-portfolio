@@ -25,14 +25,15 @@
             <div class="h-6 w-px bg-gray-700"></div>
 
             <!-- PERSONAL INSTAGRAM LINKS (Consolidated with Tooltip) -->
-            <div class="relative group">
-                <!-- The main Instagram Icon -->
-                 <a href="https://www.instagram.com/faith_25_17?igsh=NTA2aW5qeW0ycG9n" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-teal-400 transition-colors" aria-label="Instagram Profiles">
+            <div class="relative group" tabindex="0"> <!-- Made this container focusable -->
+                <!-- The main Instagram Icon (no longer a link) -->
+                 <div class="text-gray-400 group-hover:text-teal-400 transition-colors cursor-pointer" aria-label="Instagram Profiles">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                </a>
-                <!-- The Tooltip (hidden by default, appears on hover) -->
+                </div>
+                <!-- The Tooltip (appears on hover or click/tap) -->
                 <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max
-                            invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity
+                            invisible opacity-0 group-hover:visible group-hover:opacity-100 
+                            group-focus-within:visible group-focus-within:opacity-100 transition-opacity
                             bg-gray-800 text-white text-sm rounded-lg shadow-lg p-2">
                     <a href="https://www.instagram.com/faith_25_17?igsh=NTA2aW5qeW0ycG9n" target="_blank" rel="noopener noreferrer" class="block py-1 px-2 hover:bg-gray-700 rounded-md">Faith_25_17</a>
                     <a href="https://www.instagram.com/spiritual_armor3?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer" class="block py-1 px-2 hover:bg-gray-700 rounded-md">Spiritual Armor</a>
@@ -44,3 +45,4 @@
         </div>
     </div>
 </footer>
+
