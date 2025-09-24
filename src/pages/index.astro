@@ -1,6 +1,6 @@
 ---
 // This is the final, fully-featured version of your homepage.
-// It now includes new, dedicated sections for Professional Experience and Education.
+// The "Featured Projects" section has been expanded to include all key projects from the resume.
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -14,11 +14,11 @@ import Layout from '../layouts/Layout.astro';
             Data Scientist Building Value from Complex Data
         </h1>
         <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            I transform raw data into actionable insights using Python, SQL, and Machine Learning. My disciplined, analytical approach honed through rigorous UPSC preparation allows me to solve complex problems and drive business impact.
+            I transform raw data into actionable insights using Python, SQL, and Machine Learning. My disciplined, analytical approach—honed through rigorous UPSC preparation—allows me to solve complex problems and drive business impact.
         </p>
         <div class="flex justify-center items-center gap-4">
-            <a href="https://allan122.github.io/allan-s_portfolio_/" target="_blank" rel="noopener noreferrer" class="bg-teal-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors">
-                View My Full Portfolio
+            <a href="https://github.com/Allan122" target="_blank" rel="noopener noreferrer" class="bg-teal-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors">
+                View My Full Portfolio on GitHub
             </a>
              <a href="#about" class="bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">
                 Get In Touch
@@ -26,14 +26,15 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </section>
 
-    <!-- FEATURED PROJECTS SECTION -->
+    <!-- EXPANDED FEATURED PROJECTS SECTION -->
     <section id="projects" class="py-16 md:py-24">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-white font-poppins">Featured Projects</h2>
             <p class="text-gray-400 mt-2">A selection of projects that demonstrate my skills in action.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project Card 1: Retail Sales -->
+            
+            <!-- Project Card 1: Retail Sales (Existing) -->
             <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
                 <h3 class="text-xl font-bold text-white mb-2 font-poppins">Retail Sales & Customer Behavior Analysis</h3>
                 <p class="text-gray-400 mb-4 flex-grow">
@@ -45,29 +46,63 @@ import Layout from '../layouts/Layout.astro';
                     <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">SQL</span>
                     <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">EDA</span>
                 </div>
-                <a href="https://github.com/Allan122/Retail-Sales-Analysis-Project.git" class="text-teal-400 hover:text-teal-300 font-semibold mt-auto">
+                <a href="/projects/retail-sales-analysis" class="text-teal-400 hover:text-teal-300 font-semibold mt-auto">
                     View Case Study →
                 </a>
             </div>
-            <!-- Project Card 2: LinkedIn Analysis -->
+
+            <!-- Project Card 2: Sales Forecasting (New) -->
             <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
-                <h3 class="text-xl font-bold text-white mb-2 font-poppins">LinkedIn Networking Trends Analysis</h3>
+                <h3 class="text-xl font-bold text-white mb-2 font-poppins">Sales Forecasting with Time Series Analysis</h3>
                 <p class="text-gray-400 mb-4 flex-grow">
-                    A detailed case study analyzing user networking patterns on a professional platform. Utilized SQL for data extraction and Python for processing and identifying key engagement trends.
+                    Built and evaluated SARIMA & Prophet models to forecast monthly sales data, analyzing 5 years of historical data and reducing forecast error by 18%.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">SQL</span>
                     <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
-                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Data Analysis</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Statsmodels</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Tableau</span>
                 </div>
                 <a href="#" class="text-gray-500 font-semibold mt-auto cursor-not-allowed">
                     Case Study Coming Soon
                 </a>
             </div>
+
+            <!-- Project Card 3: Sentiment Analysis (New) -->
+            <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
+                <h3 class="text-xl font-bold text-white mb-2 font-poppins">Real-time Sentiment Analysis of Twitter Data</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    Engineered a Dockerized data pipeline to stream and analyze live tweet sentiment with an LSTM model, achieving an F1-score of 0.88.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">TensorFlow</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">NLTK</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Docker</span>
+                </div>
+                <a href="#" class="text-gray-500 font-semibold mt-auto cursor-not-allowed">
+                    Case Study Coming Soon
+                </a>
+            </div>
+
+            <!-- Project Card 4: Kaggle Competition (New) -->
+            <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
+                <h3 class="text-xl font-bold text-white mb-2 font-poppins">Kaggle: Titanic Survival Prediction</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    Leveraged LightGBM and extensive feature engineering to predict passenger survival, placing in the top 10% of all participants.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-yellow-900/50 text-yellow-300 text-xs font-semibold px-2.5 py-1 rounded-full">Kaggle Top 10%</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">LightGBM</span>
+                </div>
+                <a href="#" class="text-gray-500 font-semibold mt-auto cursor-not-allowed">
+                    Case Study Coming Soon
+                </a>
+            </div>
+            
         </div>
     </section>
 
-    <!-- NEW: PROFESSIONAL EXPERIENCE SECTION -->
+    <!-- PROFESSIONAL EXPERIENCE SECTION -->
     <section id="experience" class="py-16 md:py-24">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-white font-poppins">Professional Experience</h2>
@@ -104,7 +139,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </section>
 
-    <!-- NEW: EDUCATION SECTION -->
+    <!-- EDUCATION SECTION -->
     <section id="education" class="py-16 md:py-24">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-white font-poppins">Education</h2>
@@ -129,24 +164,23 @@ import Layout from '../layouts/Layout.astro';
             <h2 class="text-3xl md:text-4xl font-bold text-white font-poppins">Certifications & Training</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <!-- ACTION: Replace '#' with the actual credential URL for each certification -->
             <a href="#" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
                 <p class="font-semibold text-white">Specialization in Data Science (ML & AI)</p>
                 <p class="text-sm text-gray-400">AlmaBetter (Ongoing)</p>
             </a>
-            <a href="https://allan122.github.io/allan-s_portfolio_/#introduction-to-data-science" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
                 <p class="font-semibold text-white">Introduction to Data Science</p>
                 <p class="text-sm text-gray-400">CISCO</p>
             </a>
-            <a href="https://allan122.github.io/allan-s_portfolio_/#data-analytics-essentials" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
                 <p class="font-semibold text-white">Data Analysis Essentials</p>
                 <p class="text-sm text-gray-400">CISCO</p>
             </a>
-            <a href="https://allan122.github.io/allan-s_portfolio_/#python-basic-advance-2024" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
                 <p class="font-semibold text-white">Python (Basic to Advanced)</p>
                 <p class="text-sm text-gray-400">Udemy</p>
             </a>
-             <a href="https://allan122.github.io/allan-s_portfolio_/#python-3" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
+             <a href="#" target="_blank" rel="noopener noreferrer" class="bg-gray-800/50 p-4 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
                 <p class="font-semibold text-white">Python 3 Certification</p>
                 <p class="text-sm text-gray-400">Programming Hub</p>
             </a>
@@ -168,10 +202,10 @@ import Layout from '../layouts/Layout.astro';
             <div class="md:col-span-2 text-center md:text-left">
                 <h2 class="text-3xl font-bold text-white mb-4 font-poppins">About Me</h2>
                 <p class="text-gray-300 mb-4">
-                    I'm a Data Scientist based in Mumbai, India, with a Master's in Computer Science and a passion for uncovering the stories hidden within data. My journey into this field was driven by a deep curiosity and the analytical rigor I developed while preparing for the UPSC civil services exams a background that taught me discipline, deep research and structured problem-solving.
+                    I'm a Data Scientist based in Mumbai, India, with a Master's in Computer Science and a passion for uncovering the stories hidden within data. My journey into this field was driven by a deep curiosity and the analytical rigor I developed while preparing for the UPSC civil services exams—a background that taught me discipline, deep research, and structured problem-solving.
                 </p>
                 <p class="text-gray-300 mb-6">
-                    I thrive on the end-to-end data science process from digging into messy datasets with SQL and Python to building predictive models and visualizing results with Tableau and Power BI. I'm always eager to connect with fellow professionals and explore new challenges.
+                    I thrive on the end-to-end data science process, from digging into messy datasets with SQL and Python to building predictive models and visualizing results with Tableau and Power BI. I'm always eager to connect with fellow professionals and explore new challenges.
                 </p>
                 <a href="mailto:allanalex143@gmail.com" class="inline-block bg-teal-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors">
                     Get In Touch
