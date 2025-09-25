@@ -1,23 +1,39 @@
 ---
-// This is the main page for your blog.
-// It will eventually list all of your articles. For now, it will
-// serve as a placeholder to show that the blog is coming soon.
-
+// This is the final, "smart" version of your blog page.
+// It automatically finds all your .md files in the /content/blog/ directory
+// and creates a beautiful, linked list of all your articles.
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// This line gets all your blog posts from src/content/blog/
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <Layout 
-    title="Blog | Allan C. Alex" 
-    description="A collection of articles and deep dives on data science, machine learning, and problem-solving by Allan C. Alex."
+    title="Blog | Allan C. Alex"
+    description="A collection of articles and deep dives on data science topics by Allan C. Alex."
 >
-    <!-- Main heading for the blog page -->
-    <h1 class="text-4xl font-bold text-white sm:text-5xl mb-8">From the Desk of Allan C. Alex</h1>
-    
-    <!-- This is a placeholder for where the list of blog posts will go. -->
-    <div class="mt-12 rounded-lg border-2 border-dashed border-gray-700 p-8 text-center">
-        <p class="text-xl text-gray-400">
-            New articles and project deep dives are coming soon. Stay tuned!
-        </p>
-    </div>
+    <section class="py-16 md:py-24">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 font-poppins">
+                From the Desk of Allan C. Alex
+            </h1>
+            <p class="text-lg text-gray-400">
+                Articles and deep dives on data science, machine learning, and career insights.
+            </p>
+        </div>
 
+        <div class="max-w-3xl mx-auto space-y-8">
+            {posts.map((post) => (
+                <a href={`/blog/${post.slug}/`} class="block bg-gray-800/50 p-6 rounded-lg ring-1 ring-white/10 hover:ring-teal-400 transition-all">
+                    <p class="text-sm text-gray-400">{new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <h2 class="text-2xl font-bold text-white mt-2 mb-3 font-poppins">{post.data.title}</h2>
+                    <p class="text-gray-300">{post.data.description}</p>
+                    <div class="text-teal-400 font-semibold mt-4">Read Article →</div>
+                </a>
+            ))}
+        </div>
+    </section>
 </Layout>
