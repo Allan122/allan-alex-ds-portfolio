@@ -23,34 +23,43 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </section>
 
-    <!-- FEATURED PROJECTS SECTION -->
+<!-- FEATURED PROJECTS SECTION -->
     <section id="projects" class="py-16 md:py-24 border-t border-gray-800">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-white font-poppins">Featured Projects</h2>
             <p class="text-gray-400 mt-2">A selection of projects that demonstrate my skills in action.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project 1: UPDATED -->
             <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
-                <h3 class="text-xl font-bold text-white mb-2 font-poppins">Retail Sales & Customer Behavior Analysis</h3>
-                <p class="text-gray-400 mb-4 flex-grow">An end-to-end analysis of transactional data to identify key business trends, peak sales seasons, and top-selling products to inform inventory and marketing strategy.</p>
+                <h3 class="text-xl font-bold text-white mb-2 font-poppins">Retail Sales & Revenue Optimization</h3>
+                <p class="text-gray-400 text-sm mb-4 flex-grow">
+                    Conducted end-to-end EDA to uncover key business trends. Cleaned over 135k missing values, validated the Pareto Principle to find top revenue drivers, and mapped seasonal sales peaks to guide inventory and marketing strategy.
+                </p>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
-                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Pandas</span>
-                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">SQL</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python (Pandas, Matplotlib)</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Data Cleaning</span>
                     <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">EDA</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Business Acumen</span>
                 </div>
-                <a href="https://github.com/Allan122/Retail-Sales-Analysis-Project.git" class="text-teal-400 hover:text-teal-300 font-semibold mt-auto">View Case Study →</a>
+                <a href= "https://github.com/Allan122/Retail-Sales-Analysis-Project.git" class="text-teal-400 hover:text-teal-300 font-semibold mt-auto">View Case Study →</a>
             </div>
+            <!-- Project 2: UPDATED -->
             <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
-                <h3 class="text-xl font-bold text-white mb-2 font-poppins">Sales Forecasting with Time Series Analysis</h3>
-                <p class="text-gray-400 mb-4 flex-grow">Built and evaluated SARIMA & Prophet models to forecast monthly sales data, analyzing 5 years of historical data and reducing forecast error by 18%.</p>
+                <h3 class="text-xl font-bold text-white mb-2 font-poppins">Customer Segmentation using RFM & K-Means</h3>
+                <p class="text-gray-400 text-sm mb-4 flex-grow">
+                    Leveraged unsupervised learning to segment a customer base for targeted marketing. Built an RFM model, managed data skewness using Log Transformation, and identified 5 distinct customer segments (e.g., Champions, At Risk) to tailor marketing strategies.
+                </p>
+
                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
-                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Statsmodels</span>
-                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Tableau</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python (Pandas, Scikit-learn)</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Statistical Transformation</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">K-Means Clustering</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Feature Engineering (RFM)</span>
                 </div>
-                <a href="#" class="text-gray-500 font-semibold mt-auto cursor-not-allowed">Case Study Coming Soon</a>
+                <a href="https://github.com/Allan122/Customer-Segmentation-project.git" class="text-teal-400 hover:text-teal-300 font-semibold mt-auto">View Case Study →</a>
             </div>
+            <!-- Project 3: Placeholder -->
             <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
                 <h3 class="text-xl font-bold text-white mb-2 font-poppins">Real-time Sentiment Analysis of Twitter Data</h3>
                 <p class="text-gray-400 mb-4 flex-grow">Engineered a Dockerized data pipeline to stream and analyze live tweet sentiment with an LSTM model, achieving an F1-score of 0.88.</p>
@@ -62,6 +71,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <a href="#" class="text-gray-500 font-semibold mt-auto cursor-not-allowed">Case Study Coming Soon</a>
             </div>
+            <!-- Project 4: Placeholder -->
             <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
                 <h3 class="text-xl font-bold text-white mb-2 font-poppins">Kaggle: Titanic Survival Prediction</h3>
                 <p class="text-gray-400 mb-4 flex-grow">Leveraged LightGBM and extensive feature engineering to predict passenger survival, placing in the top 10% of all participants.</p>
