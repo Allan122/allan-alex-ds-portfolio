@@ -1,38 +1,45 @@
----
-import Layout from '../../layouts/Layout.astro';
----
-<style>
-    /* Basic styling for code blocks */
-    pre {
-        background-color: #1f2937; /* gray-800 */
-        color: #d1d5db; /* gray-300 */
-        padding: 1rem;
-        border-radius: 0.5rem;
-        overflow-x: auto;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 0.9em;
-    }
-    pre code .token.comment {
-        color: #9ca3af; /* gray-400 */
-    }
-    pre code .token.keyword {
-        color: #f9a8d4; /* pink-300 */
-    }
-    pre code .token.function {
-        color: #a7f3d0; /* emerald-200 */
-    }
-    pre code .token.string {
-        color: #fde047; /* yellow-300 */
-    }
-     pre code .token.number {
-        color: #d8b4fe; /* purple-300 */
-    }
-    pre code .token.operator {
-        color: #f9a8d4; /* pink-300 */
-    }
-</style>
-
-<Layout title="Project Showcase: Recommendation Engine" description="How Matrix Factorization Solved the Kindle Discovery Problem">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase: High-Accuracy Recommendation Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- KaTeX for LaTeX formula rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" xintegrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for blockquotes to make them stand out */
+        blockquote {
+            border-left: 4px solid #4f46e5;
+            padding-left: 1rem;
+            margin-left: 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
 
     <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         
@@ -102,104 +109,6 @@ import Layout from '../../layouts/Layout.astro';
                     </div>
                 </section>
 
-                <!-- NEW SECTION: Technical Deep Dive -->
-                <section>
-                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center"><span class="mr-3 text-3xl">💻</span>Technical Deep Dive: The Code</h2>
-                    <div class="prose max-w-none text-lg text-gray-700 space-y-8">
-                        <p>Here are the key Python snippets that powered this project, using the `pandas` and `surprise` libraries.</p>
-                        
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">1. Data Filtering (The Sparsity Defense)</h3>
-                            <pre><code class="language-python">import pandas as pd
-
-# Load the datasets
-users = pd.read_csv('BX-Users.csv', sep=';', on_bad_lines='skip', encoding='latin-1')
-ratings = pd.read_csv('BX-Book-Ratings.csv', sep=';', on_bad_lines='skip', encoding='latin-1')
-
-# Calculate rating counts for books and users
-user_rating_counts = ratings['User-ID'].value_counts()
-book_rating_counts = ratings['ISBN'].value_counts()
-
-# Filter out users with less than 20 ratings
-robust_users = user_rating_counts[user_rating_counts >= 20].index
-ratings = ratings[ratings['User-ID'].isin(robust_users)]
-
-# Filter out books with less than 10 ratings
-robust_books = book_rating_counts[book_rating_counts >= 10].index
-ratings = ratings[ratings['ISBN'].isin(robust_books)]
-
-# Final cleaned ratings: 359,054 rows
-print(f"Shape of the final, robust ratings dataset: {ratings.shape}")
-</code></pre>
-                        </div>
-
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">2. Model Training & Hyperparameter Tuning</h3>
-                            <pre><code class="language-python">from surprise import Dataset, Reader, SVD
-from surprise.model_selection import GridSearchCV
-
-# The Reader is needed to parse the file
-reader = Reader(rating_scale=(1, 10))
-
-# Load the data into Surprise's format
-data = Dataset.load_from_df(ratings[['User-ID', 'ISBN', 'Book-Rating']], reader)
-
-# Define the parameter grid for GridSearchCV
-# We focus on n_factors as it was the key hyperparameter
-param_grid = {'n_factors': [50, 100, 150], 'n_epochs': [20], 'lr_all': [0.005], 'reg_all': [0.02]}
-gs = GridSearchCV(SVD, param_grid, measures=['rmse'], cv=3)
-
-# Find the best model
-gs.fit(data)
-
-# Best RMSE score and parameters
-print(f"Best RMSE score: {gs.best_score['rmse']:.4f}") # Should be ~3.4965
-print(f"Best parameters: {gs.best_params['rmse']}") # n_factors should be 100
-
-# Train the final model with the best parameters
-final_model = gs.best_estimator['rmse']
-trainset = data.build_full_trainset()
-final_model.fit(trainset)
-</code></pre>
-                        </div>
-
-                         <div>
-                            <h3 class="text-xl font-semibold mb-2">3. Getting Predictions for a User</h3>
-                            <pre><code class="language-python">def get_top_n_recommendations(user_id, n=10):
-    # Get a list of all book ISBNs
-    all_books = ratings['ISBN'].unique()
-    
-    # Get a list of books the user has already rated
-    rated_books = ratings[ratings['User-ID'] == user_id]['ISBN']
-    
-    # Get books the user has NOT rated
-    books_to_predict = [book for book in all_books if book not in rated_books]
-    
-    # Predict ratings for the unrated books
-    predictions = [final_model.predict(user_id, book_isbn) for book_isbn in books_to_predict]
-    
-    # Sort predictions by estimated rating
-    predictions.sort(key=lambda x: x.est, reverse=True)
-    
-    # Return the top N recommendations
-    top_n = predictions[:n]
-    
-    # You would typically map ISBNs back to book titles here
-    return [(pred.iid, pred.est) for pred in top_n]
-
-# Example usage for a sample user
-sample_user_id = 204622 # Example user from the dataset
-recommendations = get_top_n_recommendations(sample_user_id, n=5)
-
-print(f"Top 5 recommendations for user {sample_user_id}:")
-for book_isbn, estimated_rating in recommendations:
-    print(f"  - ISBN: {book_isbn}, Predicted Rating: {estimated_rating:.2f}")
-
-</code></pre>
-                        </div>
-                    </div>
-                </section>
-
                 <!-- Section 5: Performance & Impact -->
                 <section>
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center"><span class="mr-3 text-3xl">🏆</span>Phase 4: Final Performance & Business Impact</h2>
@@ -255,4 +164,5 @@ for book_isbn, estimated_rating in recommendations:
 
     </div>
 
-</Layout>
+</body>
+</html>
