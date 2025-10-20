@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase: High-Accuracy Recommendation Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- KaTeX for LaTeX formula rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" xintegrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for blockquotes to make them stand out */
+        blockquote {
+            border-left: 4px solid #4f46e5;
+            padding-left: 1rem;
+            margin-left: 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <header class="p-8 md:p-12 text-center bg-gray-100 border-b border-gray-200">
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">Project Showcase: Building a High-Accuracy Recommendation Engine</h1>
+                <p class="mt-4 text-lg md:text-xl text-indigo-600 font-medium">How Matrix Factorization Solved the Kindle Discovery Problem</p>
+            </header>
+
+            <div class="p-8 md:p-12 space-y-12">
+                <!-- Section 1: The Business Problem -->
+                <section>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center"><span class="mr-3 text-3xl">🎯</span>The Business Problem: Discovery Fatigue</h2>
+                    <div class="prose max-w-none text-lg text-gray-700 space-y-4">
+                        <p>In digital retail, choice is overwhelming. For a platform like Kindle, simply listing best-sellers isn't enough. True success comes from predicting what an individual user will love, turning browsing into buying.</p>
+                        <p class="font-semibold bg-indigo-50 p-4 rounded-lg border border-indigo-200"><strong>Our Goal:</strong> Build a recommendation engine using the large-scale Book-Crossing dataset to deliver personalized recommendations, increase user engagement, and drive sales.</p>
+                        <img src="https://placehold.co/800x400/6366f1/ffffff?text=User+Engagement" alt="Illustration of user engagement with a digital platform" class="rounded-lg shadow-md w-full mt-6" onerror="this.onerror=null;this.src='https://placehold.co/800x400/cccccc/ffffff?text=Image+Not+Found';">
+                    </div>
+                </section>
+
+                <!-- Section 2: The Sparsity Defense -->
+                <section>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center"><span class="mr-3 text-3xl">🧹</span>Phase 1: The Sparsity Defense</h2>
+                    <div class="prose max-w-none text-lg text-gray-700 space-y-4">
+                        <p>Any large dataset has a core challenge: sparsity. Our initial dataset had over 1 million ratings, but most of the user-item matrix was empty space. A model can't learn from nothing.</p>
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-semibold text-xl text-gray-800 mb-3">Our Strategy:</h3>
+                            <p>We performed a crucial data engineering step to keep only high-quality interaction data:</p>
+                            <ul class="list-disc list-inside mt-2 space-y-2">
+                                <li><strong>Users Filtered:</strong> Kept only users who rated at least <strong>20 books</strong>.</li>
+                                <li><strong>Books Filtered:</strong> Kept only books rated by at least <strong>10 users</strong>.</li>
+                            </ul>
+                            <p class="mt-4 font-bold text-green-700 bg-green-100 p-3 rounded-md">Result: This removed 65% of noisy data, creating a robust dataset of 359,054 high-quality ratings.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Why SVD is Superior -->
+                <section>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center"><span class="mr-3 text-3xl">💡</span>Phase 2: Why SVD is the Superior Choice</h2>
+                    <div class="prose max-w-none text-lg text-gray-700 space-y-6">
+                        <p>We tested two collaborative filtering methods, but one was the clear winner for this business problem.</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="border border-red-300 bg-red-50 p-4 rounded-lg">
+                                <h3 class="font-bold text-xl text-red-800">K-Nearest Neighbors (KNN) ❌</h3>
+                                <p class="mt-2">This "neighborhood" model relies on finding users who rated the same books. In a sparse dataset, these direct overlaps are rare. Too slow and inaccurate for our sparse data.</p>
+                            </div>
+                             <div class="border border-green-300 bg-green-50 p-4 rounded-lg">
+                                <h3 class="font-bold text-xl text-green-800">Singular Value Decomposition (SVD) ✅</h3>
+                                <p class="mt-2">This "model-based" approach uses matrix factorization to find hidden patterns (latent factors), even without direct overlaps.</p>
+                            </div>
+                        </div>
+                        <p class="text-center font-mono text-xl p-4 bg-gray-100 rounded-md">The Core Idea: $R \approx P \times Q^T$</p>
+                    </div>
+                </section>
+
+                <!-- Section 4: Latent Factors -->
+                <section>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center"><span class="mr-3 text-3xl">🔮</span>Phase 3: Discovering "Latent Factors"</h2>
+                    <div class="prose max-w-none text-lg text-gray-700 space-y-4">
+                        <p>This is the mathematical magic behind the model. Latent factors are the hidden features SVD uncovers automatically. Think of them as the model learning abstract concepts on its own, like:</p>
+                        <blockquote class="text-lg">
+                            <p>"Preference for high-stakes thrillers"</p>
+                            <p>"Dislike of slow-paced historical fiction"</p>
+                        </blockquote>
+                        <p><strong>Tuning for Perfection:</strong> The key is choosing the right number of factors. Using GridSearchCV, we determined the optimal number to be <strong>100</strong>. This allowed the model to capture complex user tastes without "overfitting" (memorizing noise).</p>
+                    </div>
+                </section>
+
+                <!-- Section 5: Performance & Impact -->
+                <section>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center"><span class="mr-3 text-3xl">🏆</span>Phase 4: Final Performance & Business Impact</h2>
+                    <div class="prose max-w-none text-lg text-gray-700 space-y-6">
+                        <p>The SVD model delivered the lowest prediction error, making it the clear choice for deployment.</p>
+                        
+                        <!-- Results Table -->
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200 border rounded-lg">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Model</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Average RMSE</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Final Decision</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Normal Predictor (Baseline)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">~3.7500</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-red-600">❌ Rejected (Benchmark)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">KNNWithMeans (Tuned)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">3.5427</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-red-600">❌ Rejected (High Error)</td>
+                                    </tr>
+                                    <tr class="bg-green-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">SVD (Tuned)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-green-700">3.4965</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-green-700">✅ Accepted - Final Model</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200 mt-8">
+                            <h3 class="font-bold text-xl text-indigo-800">The Business Win: RMSE = 3.4965</h3>
+                            <p class="mt-2">This isn't just a number; it's a measure of reliability. Root Mean Squared Error (RMSE) heavily penalizes large mistakes.</p>
+                            <ul class="list-disc list-inside mt-3 space-y-2">
+                                <li><strong>Builds User Trust:</strong> A low RMSE ensures the model avoids egregious errors, which is essential for user retention.</li>
+                                <li><strong>Drives Sales:</strong> Accurate, personalized recommendations reduce user fatigue and directly lift sales conversion rates.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <footer class="bg-gray-800 text-white p-8 md:p-12 text-center">
+                <p class="text-lg">This project delivered a highly accurate, deployment-ready system designed to drive commercial growth by transforming sparse data into a powerful business asset.</p>
+            </footer>
+        </article>
+
+    </div>
+
+</body>
+</html>
+

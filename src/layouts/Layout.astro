@@ -1,6 +1,6 @@
 ---
 // This is the final version of your master layout.
-// It now includes the Google Analytics 4 tracking script.
+// It now includes the Google Analytics script AND the MathJax script for formulas.
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -27,15 +27,29 @@ const { title, description } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
 		
-        <!-- NEW: Google Analytics 4 Tracking Script -->
-        <!-- ACTION REQUIRED: Replace G-XXXXXXXXXX with your own Measurement ID -->
+        <!-- GoogleAnalytics 4 -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-52BJ2MJKKC"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
+          gtag('config', 'G-52BJ2MJKKC'); // Replace with your actual ID
+        </script>
 
-          gtag('config', 'G-52BJ2MJKKC');
+        <!-- NEW: MathJax for LaTeX formulas -->
+        <script>
+            window.MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
         </script>
 	</head>
 	<body class="min-h-screen flex flex-col">

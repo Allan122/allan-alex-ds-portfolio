@@ -84,21 +84,23 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </section>
 
-    <!-- PUBLICATIONS SECTION -->
+      <!-- PUBLICATIONS SECTION (UPDATED AS REQUESTED) -->
     <section id="publications" class="py-16 md:py-24 border-t border-gray-800">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-white font-poppins">Publications & Articles</h2>
             <p class="text-gray-400 mt-2">A collection of my technical writing and deep dives.</p>
         </div>
         <div class="max-w-2xl mx-auto">
-            <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-2 font-poppins">A Beginner's Guide to Convolutional Neural Networks</h3>
-                    <p class="text-gray-400 mb-4 sm:mb-0">Authored a technical blog post on implementing CNNs for image classification.</p>
+            <!-- This is the new content you wanted -->
+            <div class="bg-gray-800/50 rounded-lg p-6 ring-1 ring-white/10 flex flex-col">
+                <h3 class="text-xl font-bold text-white mb-2 font-poppins">High-Accuracy Recommendation Engine</h3>
+                <p class="text-gray-400 text-sm mb-4 flex-grow">Built a high-performance recommendation engine using Singular Value Decomposition (SVD) to solve the "discovery fatigue" problem for a large book dataset.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">Matrix Factorization</span>
+                    <span class="bg-teal-900/50 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full">SVD</span>
                 </div>
-                <a href="/article-cnn-guide.pdf" target="_blank" rel="noopener noreferrer" class="bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors shrink-0">
-                    Read as PDF
-                </a>
+                <a href="/projects/recommendation-engine-svd" class="text-teal-400 hover:text-teal-300 font-semibold mt-auto">View Case Study →</a>
             </div>
         </div>
     </section>
@@ -219,4 +221,3 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </section>
 </Layout>
-
