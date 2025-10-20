@@ -1,45 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Showcase: High-Accuracy Recommendation Engine</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- KaTeX for LaTeX formula rendering -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" xintegrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\(', right: '\\)', display: false},
-                    {left: '\\[', right: '\\]', display: true}
-                ],
-                throwOnError: false
-            });
-        });
-    </script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Style for blockquotes to make them stand out */
-        blockquote {
-            border-left: 4px solid #4f46e5;
-            padding-left: 1rem;
-            margin-left: 0;
-            font-style: italic;
-            color: #4b5563;
-        }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Project Showcase: Recommendation Engine" description="How Matrix Factorization Solved the Kindle Discovery Problem">
 
     <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         
@@ -56,7 +18,7 @@
                     <div class="prose max-w-none text-lg text-gray-700 space-y-4">
                         <p>In digital retail, choice is overwhelming. For a platform like Kindle, simply listing best-sellers isn't enough. True success comes from predicting what an individual user will love, turning browsing into buying.</p>
                         <p class="font-semibold bg-indigo-50 p-4 rounded-lg border border-indigo-200"><strong>Our Goal:</strong> Build a recommendation engine using the large-scale Book-Crossing dataset to deliver personalized recommendations, increase user engagement, and drive sales.</p>
-                        <img src="https://placehold.co/800x400/6366f1/ffffff?text=User+Engagement" alt="Illustration of user engagement with a digital platform" class="rounded-lg shadow-md w-full mt-6" onerror="this.onerror=null;this.src='https://placehold.co/800x400/cccccc/ffffff?text=Image+Not+Found';">
+                        <img src="https://placehold.co/800x4T00/6366f1/ffffff?text=User+Engagement" alt="Illustration of user engagement with a digital platform" class="rounded-lg shadow-md w-full mt-6" onerror="this.onerror=null;this.src='https://placehold.co/800x400/cccccc/ffffff?text=Image+Not+Found';">
                     </div>
                 </section>
 
@@ -164,5 +126,4 @@
 
     </div>
 
-</body>
-</html>
+</Layout>
